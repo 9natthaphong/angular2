@@ -1,0 +1,24 @@
+<div class="container">
+    <form [formGroup]="demoForm" (ngSubmit)="onSubmit()">
+      <label for="firstName">First Name:</label>
+      <input id="firstName" formControlName="firstName">
+      <div *ngIf="demoForm.get('firstName')?.invalid && demoForm.get('firstName')?.touched">
+        First Name is required
+      </div>
+  
+      <label for="lastName">Last Name:</label>
+      <input id="lastName" formControlName="lastName">
+      <div *ngIf="demoForm.get('lastName')?.invalid && demoForm.get('lastName')?.touched">
+        Last Name is required
+      </div>
+  
+      <label for="dob">Date of Birth:</label>
+      <input id="dob" type="date" formControlName="dob">
+      <div *ngIf="demoForm.get('dob')?.invalid && demoForm.get('dob')?.touched">
+        Date of Birth is required
+      </div>
+  
+      <button type="submit" [disabled]="demoForm.invalid">Submit</button>
+    </form>
+  </div>
+  

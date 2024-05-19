@@ -1,0 +1,36 @@
+<div class="container">
+  <h1>Sign Up</h1>
+  <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+    <label for="firstName">First Name:</label>
+    <input id="firstName"   type="text"   formControlName="firstName">
+    <div *ngIf="signupForm.get('firstName')?.invalid && signupForm.get('firstName')?.touched" class="error-message">
+      First Name is required
+    </div>
+
+    <label for="lastName">Last Name:</label>
+    <input id="lastName"  type="text"  formControlName="lastName">
+    <div *ngIf="signupForm.get('lastName')?.invalid && signupForm.get('lastName')?.touched" class="error-message">
+      Last Name is required
+    </div>
+
+    <label for="email">Email:</label>
+    <input id="email" type="email" formControlName="email">
+    <div *ngIf="signupForm.get('email')?.invalid && signupForm.get('email')?.touched" class="error-message">
+      Valid Email is required
+    </div>
+
+    <label for="password">Password:</label>
+    <input id="password" type="password" formControlName="password">
+    <div *ngIf="signupForm.get('password')?.invalid && signupForm.get('password')?.touched" class="error-message">
+      Password must be between 8 and 20 characters
+    </div>
+
+    <label for="dob">Date of Birth:</label>
+    <input id="dob" type="date" formControlName="dob">
+    <div *ngIf="signupForm.get('dob')?.invalid && signupForm.get('dob')?.touched" class="error-message">
+      Date of Birth is required
+    </div>
+
+    <button type="submit" [disabled]="signupForm.invalid">Sign Up</button>
+  </form>
+</div>
